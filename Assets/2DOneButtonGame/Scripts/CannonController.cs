@@ -13,7 +13,8 @@ using UnityEngine;
 /// Basically, have each cannon "active" when player is inside cannon, 
 /// but "inactive" when player is outside cannon.
 /// 
-/// 
+/// Update: turns out a set active on player works just as good as making a cannon active. In fact all the cannons are always active.
+/// Just probably need a differnt script for the moving cannons
 ///
 /// </summary>
 
@@ -35,9 +36,10 @@ public class CannonController : MonoBehaviour
 
                 Debug.Log("FIRE!");
                 playerscript.playerRB.velocity = Vector2.zero;
-                playerscript.playerRB.AddForce(transform.right * playerscript.launchPower);
-
+                playerscript.playerRB.AddForce(transform.right * playerscript.launchPower); //tells the rigid body to addforce in the pos X direction (or 'right' in this case)
+                playerscript.inStaticCannon = false;
             }
+            
         }
     }
     // Update is called once per frame

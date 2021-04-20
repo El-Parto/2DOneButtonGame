@@ -16,7 +16,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public Rigidbody2D playerRB;
-    public float launchPower = 5000.0f;
+    public float launchPower = 2500.0f;
 
 
     public GameObject player;
@@ -38,22 +38,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            gameObject.SetActive(true);
-            if (inStaticCannon == true)
-            {
-
-
-
-                
-
-                Debug.Log("FIRE!");
-                playerRB.velocity = Vector2.zero;
-                playerRB.AddForce(transform.right * launchPower);
-            }
-            
-        }
+      
     }
   
     private void FixedUpdate()
@@ -71,6 +56,13 @@ public class PlayerScript : MonoBehaviour
             inStaticCannon = true;
             Debug.Log("Fire when ready!");
            
+        }
+        if (collision.collider.gameObject.CompareTag("movingCannon")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
+        {
+            gameObject.SetActive(false); // set the current gameObject's "set active" to false. Which means basically making it inactive
+            inMovingCannon = true;
+            Debug.Log("Fire when ready!");
+
         }
     }
 
