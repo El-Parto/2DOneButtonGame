@@ -22,35 +22,30 @@ using UnityEngine;
 
 public class CannonController : MonoBehaviour
 {
-    public GameObject Cannon;
-    public bool inCannon;
+    public PlayerScript playerscript;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void FireStaticCannon()
     {
-        
-    }
+        if (playerscript.inStaticCannon == true)
+        {
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                playerscript.gameObject.SetActive(true);
 
+                Debug.Log("FIRE!");
+                playerscript.playerRB.velocity = Vector2.zero;
+                playerscript.playerRB.AddForce(transform.right * playerscript.launchPower);
+
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        FireStaticCannon();
     }
 
-    public void CannonEnter()
-    {
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-
-    }
 
 
 

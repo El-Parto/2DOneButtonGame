@@ -15,20 +15,63 @@ using UnityEngine;
 /// </summary>
 public class PlayerScript : MonoBehaviour
 {
-    private Rigidbody2D playerRB;
-    private GameObject player;
+    public Rigidbody2D playerRB;
+    public float launchPower = 5000.0f;
 
 
+    public GameObject player;
+
+
+    public bool inStaticCannon;
+    public bool inMovingCannon;
     // Start is called before the first frame update
     void Start()
     {
-        playerRB = gameObject.GetComponent<Rigidbody2D>();
-        
+        playerRB = gameObject.GetComponent<Rigidbody2D>(); // the current player's rigid body
+        //player = gameObject;
     }
+
+
+
+
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            gameObject.SetActive(true);
+            if (inStaticCannon == true)
+            {
+
+
+
+                
+
+                Debug.Log("FIRE!");
+                playerRB.velocity = Vector2.zero;
+                playerRB.AddForce(transform.right * launchPower);
+            }
+            
+        }
+    }
+  
+    private void FixedUpdate()
+    {
         
     }
+
+
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.CompareTag("staticCannon")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
+        {
+            gameObject.SetActive(false); // set the current gameObject's "set active" to false. Which means basically making it inactive
+            inStaticCannon = true;
+            Debug.Log("Fire when ready!");
+           
+        }
+    }
+
 }
