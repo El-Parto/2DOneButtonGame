@@ -24,7 +24,7 @@ using UnityEngine;
 public class CannonController : MonoBehaviour
 {
     public PlayerScript playerScript;
-
+    public static Transform currentCannon;
 
     public void FireStaticCannon()
     {
@@ -33,7 +33,7 @@ public class CannonController : MonoBehaviour
             playerScript.gameObject.transform.localRotation = Quaternion.identity; // make rotation 0,0 so it can set it self up to take in the parent's transform
             if (Input.GetKeyDown(KeyCode.C)) // if the C key is pressed
             {
-                playerScript.gameObject.transform.localPosition = new Vector2(0, 0); // set it's transform to 0,0 relative to it's parent.
+                playerScript.gameObject.transform.localPosition = new Vector2(2f, 0); // set it's transform to 0,0 relative to it's parent.
                 
                 playerScript.gameObject.SetActive(true); // activate the player
 
@@ -42,7 +42,7 @@ public class CannonController : MonoBehaviour
                 playerScript.gameObject.transform.SetParent(null); // set the player's parent to world
                 
                 playerScript.playerRB.velocity = Vector2.zero; // "freezes" all velocity that the player may of had upon entering a cannon.
-                playerScript.playerRB.AddForce(transform.right * playerScript.launchPower); //tells the rigid body to addforce in the pos X direction (or 'right' in this case)
+                playerScript.playerRB.AddForce(currentCannon.right * playerScript.launchPower); //tells the rigid body to addforce in the pos X direction (or 'right' in this case)
                 playerScript.inStaticCannon = false; // tells the bool variable to be false so that the player is no longer inside a cannon
 
             }

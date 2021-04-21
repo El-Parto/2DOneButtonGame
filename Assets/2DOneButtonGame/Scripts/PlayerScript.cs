@@ -42,18 +42,19 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inStaticCannon == false)
-        {
-            gameObject.transform.localScale = new Vector2(1, 1);
-        }
         /*
+        if (inStaticCannon == false) 
+        {
+            gameObject.transform.localScale = new Vector2(1, 1); // this is to set the scale of the cannon ball back to normal 1,1 scale
+        }
+        
         else
         {
             gameObject.transform.localPosition = new Vector2(0, 0);
         }
         */
     }
-  
+
     private void FixedUpdate()
     {
         
@@ -65,11 +66,11 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.collider.gameObject.CompareTag("staticCannon")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
         {
+            CannonController.currentCannon = collision.transform;
             gameObject.SetActive(false); // set the current gameObject's "set active" to false. Which means basically making it inactive
             inStaticCannon = true;
             Debug.Log("Fire when ready!");
-            gameObject.transform.SetParent(firepoint.transform, false);
-           
+            gameObject.transform.SetParent(collision.transform, false);
         }
         if (collision.collider.gameObject.CompareTag("movingCannon")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
         {
