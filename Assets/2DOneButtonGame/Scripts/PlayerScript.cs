@@ -46,7 +46,12 @@ public class PlayerScript : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector2(1, 1);
         }
-
+        /*
+        else
+        {
+            gameObject.transform.localPosition = new Vector2(0, 0);
+        }
+        */
     }
   
     private void FixedUpdate()

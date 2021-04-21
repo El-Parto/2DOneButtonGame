@@ -28,20 +28,22 @@ public class CannonController : MonoBehaviour
 
     public void FireStaticCannon()
     {
-        if (playerScript.inStaticCannon == true)
+        if (playerScript.inStaticCannon == true) // if the player is in a static cannon
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            playerScript.gameObject.transform.localRotation = Quaternion.identity; // make rotation 0,0 so it can set it self up to take in the parent's transform
+            if (Input.GetKeyDown(KeyCode.C)) // if the C key is pressed
             {
-                playerScript.gameObject.transform.localPosition = new Vector2(0, 0);
-                playerScript.gameObject.SetActive(true);
+                playerScript.gameObject.transform.localPosition = new Vector2(0, 0); // set it's transform to 0,0 relative to it's parent.
+                
+                playerScript.gameObject.SetActive(true); // activate the player
 
-                Debug.Log("FIRE!");
+                Debug.Log("FIRE!"); // print a log that says the string.
                 
-                playerScript.gameObject.transform.SetParent(null);
+                playerScript.gameObject.transform.SetParent(null); // set the player's parent to world
                 
-                playerScript.playerRB.velocity = Vector2.zero;
+                playerScript.playerRB.velocity = Vector2.zero; // "freezes" all velocity that the player may of had upon entering a cannon.
                 playerScript.playerRB.AddForce(transform.right * playerScript.launchPower); //tells the rigid body to addforce in the pos X direction (or 'right' in this case)
-                playerScript.inStaticCannon = false;
+                playerScript.inStaticCannon = false; // tells the bool variable to be false so that the player is no longer inside a cannon
 
             }
             
@@ -50,7 +52,7 @@ public class CannonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FireStaticCannon();
+        FireStaticCannon(); // performs the function
     }
 
 
