@@ -23,21 +23,26 @@ using UnityEngine;
 
 public class CannonController : MonoBehaviour
 {
-    public PlayerScript playerscript;
+    public PlayerScript playerScript;
 
 
     public void FireStaticCannon()
     {
-        if (playerscript.inStaticCannon == true)
+        if (playerScript.inStaticCannon == true)
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                playerscript.gameObject.SetActive(true);
+                playerScript.gameObject.transform.localPosition = new Vector2(0, 0);
+                playerScript.gameObject.SetActive(true);
 
                 Debug.Log("FIRE!");
-                playerscript.playerRB.velocity = Vector2.zero;
-                playerscript.playerRB.AddForce(transform.right * playerscript.launchPower); //tells the rigid body to addforce in the pos X direction (or 'right' in this case)
-                playerscript.inStaticCannon = false;
+                
+                playerScript.gameObject.transform.SetParent(null);
+                
+                playerScript.playerRB.velocity = Vector2.zero;
+                playerScript.playerRB.AddForce(transform.right * playerScript.launchPower); //tells the rigid body to addforce in the pos X direction (or 'right' in this case)
+                playerScript.inStaticCannon = false;
+
             }
             
         }

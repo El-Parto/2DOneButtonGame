@@ -6,6 +6,7 @@ TagManager:
   tags:
   - staticCannon
   - movingCannon
+  - FiringPoint
   layers:
   - Default
   - TransparentFX
