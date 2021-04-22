@@ -7,6 +7,7 @@ TagManager:
   - staticCannon
   - movingCannon
   - FiringPoint
+  - dieOnContact
   layers:
   - Default
   - TransparentFX
