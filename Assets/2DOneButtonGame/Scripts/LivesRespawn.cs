@@ -33,7 +33,7 @@ public class LivesRespawn : MonoBehaviour
 
     IEnumerator Respawning()
     {
-        //float length = 1;
+        
         Debug.Log("You, YES YOU! You are dead!");
 
         isDed = false;
@@ -46,7 +46,7 @@ public class LivesRespawn : MonoBehaviour
 
         if (lives > 0)
         {
-            Debug.Log("I am still alive!");
+            Debug.Log("Back from the dead!");
         }
 
 
