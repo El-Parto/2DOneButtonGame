@@ -83,11 +83,11 @@ public class PlayerScript : MonoBehaviour
         }
         if (collision.collider.gameObject.CompareTag("dieOnContact")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
         {
-
+            livesRespawn.lives -= 1;
             livesRespawn.isDed = true;
             gameObject.SetActive(false);
-
-            gameObject.GetComponentInChildren<SpriteRenderer>(false);
+            
+           
 
             Debug.Log("You are ded. Not Big Souprice");
 

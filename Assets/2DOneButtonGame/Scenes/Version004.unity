@@ -428,8 +428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc88906717d6bfd4da3035103ccf49f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerscript: {fileID: 0}
+  playerscript: {fileID: 1208465845}
+  parent: {fileID: 219246162}
   lives: 3
+  isDed: 0
 --- !u!4 &222488893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5303086458845575692, guid: a2ca1be49d46b4b42adc8f7f2d57598d, type: 3}
@@ -2364,11 +2366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ba2e3b0fec10d46af3b38c769c8714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  livesRespawn: {fileID: 219246164}
   firepoint: {fileID: 0}
   playerRB: {fileID: 0}
   launchPower: 2000
-  player: {fileID: 1208465842}
-  isDed: 0
+  parent: {fileID: 219246163}
   inStaticCannon: 0
   inMovingCannon: 0
 --- !u!50 &1208465846
