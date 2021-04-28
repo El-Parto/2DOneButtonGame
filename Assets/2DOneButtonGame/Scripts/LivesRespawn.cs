@@ -11,7 +11,7 @@ public class LivesRespawn : MonoBehaviour
     public GameObject master;
 
 
-    public int lives = 3;
+    public int lives = 6;
 
 
     public bool isDed = false;
