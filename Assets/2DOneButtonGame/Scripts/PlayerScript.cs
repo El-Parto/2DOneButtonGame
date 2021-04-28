@@ -24,7 +24,11 @@ public class PlayerScript : MonoBehaviour
 
 
     public GameObject player;
+    [SerializeField]
+    public bool isDed = false;
 
+   // [SerializeField]
+   // private Sprite kaboom;
 
     public bool inStaticCannon;
     public bool inMovingCannon;
@@ -72,11 +76,15 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("Fire when ready!");
             gameObject.transform.SetParent(collision.transform, false);
         }
-        if (collision.collider.gameObject.CompareTag("movingCannon")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
+        if (collision.collider.gameObject.CompareTag("dieOnContact")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
         {
-            gameObject.SetActive(false); // set the current gameObject's "set active" to false. Which means basically making it inactive
-            inMovingCannon = true;
-            Debug.Log("Fire when ready!");
+
+            isDed = true;
+            gameObject.SetActive(false);
+
+            gameObject.GetComponentInChildren<SpriteRenderer>(false);
+
+            Debug.Log("You are ded. Not Big Souprice");
 
         }
 
