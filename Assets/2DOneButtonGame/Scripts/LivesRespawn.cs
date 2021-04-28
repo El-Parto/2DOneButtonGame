@@ -36,20 +36,23 @@ public class LivesRespawn : MonoBehaviour
 
     IEnumerator Respawning()
     {
-        float length = 1;
-        for (int i = 0; i < length; i++)
+        if (lives > 0)
         {
-            Debug.Log("You, YES YOU! You are dead!");
+            float length = 1;
+            for (int i = 0; i < length; i++)
+            {
+                Debug.Log("You, YES YOU! You are dead!");
+            }
+
+
+            yield return new WaitForSeconds(5);
+            playerscript.gameObject.transform.SetParent(transform.parent, false);
+            isDed = false;
+            playerscript.gameObject.transform.SetParent(null);
+            playerscript.gameObject.SetActive(true);
+
+
+            Debug.Log("I am still alive!");
         }
-        
-
-        yield return new WaitForSeconds(5);
-        playerscript.gameObject.transform.SetParent(transform.parent, false);
-        isDed = false;
-        playerscript.gameObject.transform.SetParent(null); 
-        playerscript.gameObject.SetActive(true);
-        
-
-        Debug.Log("I am still alive!");
     }
 }
