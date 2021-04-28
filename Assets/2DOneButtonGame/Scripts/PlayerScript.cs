@@ -50,7 +50,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+
         /*
         if (inStaticCannon == false) 
         {
@@ -81,15 +81,22 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("Fire when ready!");
             gameObject.transform.SetParent(collision.transform, false);
         }
-        if (collision.collider.gameObject.CompareTag("dieOnContact")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
+
+
+
+        if (collision.collider.gameObject.CompareTag("dieOnContact")) // if a collision with a collider on  agame object that has a tag named "dieOnContact" happens
         {
             livesRespawn.lives -= 1;
             livesRespawn.isDed = true;
+
+            //gameObject.transform.SetParent(parent.transform, false);
+            gameObject.transform.SetParent(parent, false);
+            gameObject.transform.localPosition = new Vector2(0, 0);
             gameObject.SetActive(false);
             
            
 
-            Debug.Log("You are ded. Not Big Souprice");
+            //Debug.Log("You are ded. Not Big Souprice");
 
         }
 

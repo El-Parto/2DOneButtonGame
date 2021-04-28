@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonEnterExit : MonoBehaviour
+public class GameData : MonoBehaviour
 {
-    
-
-
     // Start is called before the first frame update
     void Start()
     {
