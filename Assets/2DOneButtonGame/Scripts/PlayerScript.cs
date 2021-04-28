@@ -15,6 +15,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerScript : MonoBehaviour
 {
+    public LivesRespawn livesRespawn;
+
 
     [SerializeField]
     private GameObject firepoint;
@@ -23,9 +25,11 @@ public class PlayerScript : MonoBehaviour
     public float launchPower = 2500.0f;
 
 
-    public GameObject player;
-    [SerializeField]
-    public bool isDed = false;
+    //public GameObject player;
+    public Transform parent;
+
+    
+
 
    // [SerializeField]
    // private Sprite kaboom;
@@ -46,6 +50,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+ 
         /*
         if (inStaticCannon == false) 
         {
@@ -79,7 +84,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("dieOnContact")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
         {
 
-            isDed = true;
+            livesRespawn.isDed = true;
             gameObject.SetActive(false);
 
             gameObject.GetComponentInChildren<SpriteRenderer>(false);
@@ -89,5 +94,5 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
-
+   
 }
