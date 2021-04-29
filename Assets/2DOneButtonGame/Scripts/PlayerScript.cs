@@ -15,27 +15,17 @@ using UnityEngine;
 /// </summary>
 public class PlayerScript : MonoBehaviour
 {
-    //public new Camera camera;
-
+    
     public LivesRespawn livesRespawn;
-    public CameraFollow camFollow;
+    public CameraMover camMoo;
 
     [SerializeField]
     private GameObject firepoint;
-
     public Rigidbody2D playerRB;
     public float launchPower = 2500.0f;
-
-
     //public GameObject player;
     public Transform parent;
-
-    
-
-
-   // [SerializeField]
-   // private Sprite kaboom;
-
+ 
     public bool inStaticCannon;
     public bool inMovingCannon;
     // Start is called before the first frame update
@@ -44,10 +34,6 @@ public class PlayerScript : MonoBehaviour
         playerRB = gameObject.GetComponent<Rigidbody2D>(); // the current player's rigid body
         //player = gameObject;
     }
-
-
-
-
 
     // Update is called once per frame
     void Update()
@@ -65,14 +51,6 @@ public class PlayerScript : MonoBehaviour
         }
         */
     }
-
-    private void FixedUpdate()
-    {
-        
-    }
-
-
-
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.gameObject.CompareTag("staticCannon")) // if a collision with a collider on  agame object that has a tag named "staticCannon" happens
@@ -86,8 +64,6 @@ public class PlayerScript : MonoBehaviour
 
 
         }
-
-
 
         if (collision.collider.gameObject.CompareTag("dieOnContact")) // if a collision with a collider on  agame object that has a tag named "dieOnContact" happens
         {
@@ -109,10 +85,13 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (collision.gameObject.CompareTag("MoveCamTrigger"))
+        if (trigger.gameObject.CompareTag("MoveCamTrigger"))
         {
+            camMoo.waypoint = trigger.transform.GetComponentInChildren<Transform>();
+
+            //camMoo.camera.transform.position = camMoo.waypoint;
            //camFollow.transform.position = collision.gameObject.;
         }
 

@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform target = null;
     [SerializeField] private Vector3 offset = Vector3.zero;
-
+    
     // Update is called once per frame
     void Update()
     {

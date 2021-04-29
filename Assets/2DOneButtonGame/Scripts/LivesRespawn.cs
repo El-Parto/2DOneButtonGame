@@ -8,6 +8,10 @@ public class LivesRespawn : MonoBehaviour
     // will call the "isDed" function from PlayerScript
     public PlayerScript playerscript;
    
+    
+    //public CameraMover camMove;
+    
+
     public GameObject master;
 
 
@@ -47,6 +51,7 @@ public class LivesRespawn : MonoBehaviour
         if (lives > 0)
         {
             Debug.Log("Back from the dead!");
+            //camMove.camera.transform.position = Vector3.zero;
         }
 
 
