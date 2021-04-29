@@ -15,22 +15,25 @@ public class GameGui : MonoBehaviour
     private TMP_Text gameOverText;
     [SerializeField]
     private Button restartButton;
+    
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void NumberOLives()
     {
-        
+        livesText.text = livesText + livesRespawn1.lives.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowGameOverRestart()
     {
-      if(livesRespawn1.lives == 0)
+       
+        if (livesRespawn1.lives == 0)
         {
+            gameOverText.gameObject.SetActive(true);
             Debug.Log("GAMEOVER");
+            restartButton.gameObject.SetActive(true);
+
         }
 
     }
+
+
 }
