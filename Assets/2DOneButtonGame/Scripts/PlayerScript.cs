@@ -15,8 +15,10 @@ using UnityEngine;
 /// </summary>
 public class PlayerScript : MonoBehaviour
 {
-    public LivesRespawn livesRespawn;
+    //public new Camera camera;
 
+    public LivesRespawn livesRespawn;
+    public CameraFollow camFollow;
 
     [SerializeField]
     private GameObject firepoint;
@@ -77,9 +79,12 @@ public class PlayerScript : MonoBehaviour
         {
             CannonController.currentCannon = collision.transform;
             gameObject.SetActive(false); // set the current gameObject's "set active" to false. Which means basically making it inactive
+
             inStaticCannon = true;
             Debug.Log("Fire when ready!");
             gameObject.transform.SetParent(collision.transform, false);
+
+
         }
 
 
@@ -100,6 +105,17 @@ public class PlayerScript : MonoBehaviour
 
         }
 
+        
+
     }
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("MoveCamTrigger"))
+        {
+           //camFollow.transform.position = collision.gameObject.;
+        }
+
+    }
+
 }

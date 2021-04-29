@@ -44,7 +44,7 @@ public class CannonController : MonoBehaviour
                 playerScript.playerRB.velocity = Vector2.zero; // "freezes" all velocity that the player may of had upon entering a cannon.
                 playerScript.playerRB.AddForce(currentCannon.right * playerScript.launchPower); //tells the rigid body to addforce in the pos X direction (or 'right' in this case)
                 playerScript.inStaticCannon = false; // tells the bool variable to be false so that the player is no longer inside a cannon
-
+                
             }
             
         }

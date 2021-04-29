@@ -15,11 +15,17 @@ public class GameGui : MonoBehaviour
     private TMP_Text gameOverText;
     [SerializeField]
     private Button restartButton;
-    
+
+
+    private void Update()
+    {
+        NumberOLives();
+        ShowGameOverRestart();
+    }
 
     public void NumberOLives()
     {
-        livesText.text = livesText + livesRespawn1.lives.ToString();
+        livesText.text = $"Lives: {livesRespawn1.lives}";
     }
 
     public void ShowGameOverRestart()
@@ -29,7 +35,7 @@ public class GameGui : MonoBehaviour
         {
             gameOverText.gameObject.SetActive(true);
             Debug.Log("GAMEOVER");
-            restartButton.gameObject.SetActive(true);
+            
 
         }
 

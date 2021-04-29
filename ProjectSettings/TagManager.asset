@@ -6,6 +6,7 @@ TagManager:
   tags:
   - staticCannon
   - dieOnContact
+  - MoveCamTrigger
   layers:
   - Default
   - TransparentFX
