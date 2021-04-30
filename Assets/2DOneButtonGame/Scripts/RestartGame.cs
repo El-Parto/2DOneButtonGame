@@ -5,7 +5,8 @@ public class RestartGame : MonoBehaviour
 {
     [SerializeField]
     private LivesRespawn livRes;
-
+    [SerializeField]
+    private PlayerScript playScrip;
 
     // Update is called once per frame
     void Update()
@@ -17,5 +18,10 @@ public class RestartGame : MonoBehaviour
                 SceneManager.LoadScene("Version005");
             }
         }
+        if (playScrip.winGame == true)
+        {
+
+        }
+
     }
 }
