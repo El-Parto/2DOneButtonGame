@@ -16,6 +16,8 @@ public class GameGui : MonoBehaviour
     [SerializeField]
     private Button restartButton;
 
+    [SerializeField]
+    private TMP_Text winningText;
 
     private void Update()
     {
@@ -41,5 +43,12 @@ public class GameGui : MonoBehaviour
 
     }
 
-
+    public void ShowWinScreen()
+    {
+        if (playerscript3.winGame == true)
+        {
+            winningText.gameObject.SetActive(true);
+            Debug.Log("You win! Now gib me high marks pl0x");
+        }
+    }
 }

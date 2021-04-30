@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour
  
     public bool inStaticCannon;
     public bool inMovingCannon;
+    public bool winGame = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -81,20 +83,16 @@ public class PlayerScript : MonoBehaviour
 
         }
 
-        
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D trigger)
-    {
-        if (trigger.gameObject.CompareTag("MoveCamTrigger"))
+        if (collision.collider.gameObject.CompareTag("You Win"))
         {
-            camMoo.waypoint = trigger.transform.GetComponentInChildren<Transform>();
-
-            //camMoo.camera.transform.position = camMoo.waypoint;
-           //camFollow.transform.position = collision.gameObject.;
+            winGame = true;
         }
 
     }
 
+
 }
+
+
+
+

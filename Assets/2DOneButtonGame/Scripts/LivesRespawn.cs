@@ -20,6 +20,7 @@ public class LivesRespawn : MonoBehaviour
 
     public bool isDed = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
