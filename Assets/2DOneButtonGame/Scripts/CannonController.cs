@@ -16,16 +16,25 @@ using UnityEngine;
 /// Update: turns out a set active on player works just as good as making a cannon active. In fact all the cannons are always active.
 /// Just probably need a differnt script for the moving cannons
 ///
+/// 
+/// ^ Initial notes.
 /// </summary>
 
 
 
-
+///<summary>
+/// The brains for the insane cannons of the game. Handles firing from cannon.
+/// </summary>
 public class CannonController : MonoBehaviour
 {
-    public PlayerScript playerScript;
-    public static Transform currentCannon;
+    public PlayerScript playerScript; // Class declared as variable
+    public static Transform currentCannon; // a variable that belongs to the entire class. It's about Sharing guys. (Thanks teacher(James))
 
+
+    /// <summary>
+    /// Handles firing from a cannon, like, what key to press 
+    /// and what happens if the player rotates for whatever reason because Physics!
+    /// </summary>
     public void FireStaticCannon()
     {
         if (playerScript.inStaticCannon == true) // if the player is in a static cannon
@@ -49,7 +58,7 @@ public class CannonController : MonoBehaviour
             
         }
     }
-    // Update is called once per frame
+    
     void Update()
     {
         FireStaticCannon(); // performs the function

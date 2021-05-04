@@ -10,14 +10,17 @@ using UnityEngine;
 /// * A check to see if the player is touching the death barrier 
 /// * If the player is touching this death barrier, the player is destroyed
 /// * When player is destroyed, lose a life.
-/// *
 /// 
+///  ^ Initial notes ^
+///  
+///   The good stuff that controls  the player's behavior, what if they die, how they react on collision,
+///   how the camera moves, yeah. the player has to do a lot here.
 /// </summary>
 public class PlayerScript : MonoBehaviour
 {
     
-    public LivesRespawn livesRespawn;
-    public CameraMover camMoo;
+    public LivesRespawn livesRespawn;// Calling the brosef Lives Respawn here as a variable.
+    //public CameraMover camMoo; // didn't end up using this variable.
 
     [SerializeField]
     private GameObject firepoint;

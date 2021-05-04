@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    /*
    // public PlayerScript playerScript1;
 
     [SerializeField] private Transform target = null;
@@ -19,7 +20,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = target.position + offset;
     }
 
-
+    */
 
 
 
